@@ -16,139 +16,175 @@
 </head>
 <body class="locked">
 
-  <div id="petals" aria-hidden="true"></div>
+<div id="petals" aria-hidden="true"></div>
 
-  <!-- Welcome screen (also lets the browser play music) -->
-  <section id="intro" class="intro">
-    <div class="intro-card">
-      <p class="intro-small">ॐ &nbsp; Shubh Vivah &nbsp; ॐ</p>
-      <p class="intro-small dim">You are invited to the wedding of</p>
-      <h1 class="script" id="introNames"></h1>
+<!-- Welcome screen (also lets the browser play music) -->
+<section id="intro" class="intro">
+  <div class="intro-card">
+    <p class="intro-small">ॐ &nbsp; Shubh Vivah &nbsp; ॐ</p>
+    <p class="intro-small dim">You are invited to the wedding of</p>
+    <h1 class="script" id="introNames"></h1>
+    <div class="divider"><span>&#10086;</span></div>
+    <p class="intro-small" id="introDate"></p>
+    <button id="openBtn" class="btn gold">Open Invitation &#9835;</button>
+  </div>
+</section>
+
+<button id="musicBtn" class="music-btn" aria-label="Toggle music" title="Music on/off" hidden>
+  <span class="bars"><i></i><i></i><i></i><i></i></span>
+</button>
+<!-- Put your song at: ayushweddingsong/song.mp3 -->
+<audio id="song" loop preload="auto" src="ayushweddingsong/song.mp3"></audio>
+
+<main>
+  <!-- HERO -->
+  <header class="hero" id="home">
+    <div class="hero-inner reveal">
+      <p class="eyebrow">We are getting married</p>
+      <div class="photo-frame">
+        <img id="heroPhoto" alt="Ayush and Priyanka" />
+      </div>
+      <h2 class="script big" id="heroNames"></h2>
       <div class="divider"><span>&#10086;</span></div>
-      <p class="intro-small" id="introDate"></p>
-      <button id="openBtn" class="btn gold">Open Invitation &#9835;</button>
+      <p class="hero-date" id="heroDate"></p>
+      <p class="hero-place" id="heroPlace"></p>
+      <div class="countdown" id="countdown">
+        <div><b id="cd-d">00</b><span>Days</span></div>
+        <div><b id="cd-h">00</b><span>Hours</span></div>
+        <div><b id="cd-m">00</b><span>Minutes</span></div>
+        <div><b id="cd-s">00</b><span>Seconds</span></div>
+      </div>
+      <a href="#invite" class="scroll-hint">Scroll &#8595;</a>
+    </div>
+  </header>
+
+  <!-- BLESSING -->
+  <section class="section" id="invite">
+    <div class="container narrow reveal">
+      <h3 class="title">With Blessings</h3>
+      <p class="lead" id="blessing"></p>
     </div>
   </section>
 
-  <button id="musicBtn" class="music-btn" aria-label="Toggle music" title="Music on/off" hidden>
-    <span class="bars"><i></i><i></i><i></i><i></i></span>
-  </button>
-  <audio id="song" loop preload="auto"></audio>
-
-  <main>
-    <!-- HERO -->
-    <header class="hero" id="home">
-      <div class="hero-inner reveal">
-        <p class="eyebrow">We are getting married</p>
-        <div class="photo-frame">
-          <img id="heroPhoto" alt="Ayush and Priyanka" />
-        </div>
-        <h2 class="script big" id="heroNames"></h2>
-        <div class="divider"><span>&#10086;</span></div>
-        <p class="hero-date" id="heroDate"></p>
-        <p class="hero-place" id="heroPlace"></p>
-        <div class="countdown" id="countdown">
-          <div><b id="cd-d">00</b><span>Days</span></div>
-          <div><b id="cd-h">00</b><span>Hours</span></div>
-          <div><b id="cd-m">00</b><span>Minutes</span></div>
-          <div><b id="cd-s">00</b><span>Seconds</span></div>
-        </div>
-        <a href="#invite" class="scroll-hint">Scroll &#8595;</a>
+  <!-- FAMILIES -->
+  <section class="section alt" id="families">
+    <div class="container reveal">
+      <h3 class="title">The Families</h3>
+      <div class="couple-grid">
+        <article class="person">
+          <div class="avatar">A</div>
+          <h4 id="groomName"></h4>
+          <p class="role">The Groom</p>
+          <p class="parents" id="groomParents"></p>
+        </article>
+        <div class="heart">&#10084;</div>
+        <article class="person">
+          <div class="avatar">P</div>
+          <h4 id="brideName"></h4>
+          <p class="role">The Bride</p>
+          <p class="parents" id="brideParents"></p>
+        </article>
       </div>
-    </header>
+    </div>
+  </section>
 
-    <!-- BLESSING -->
-    <section class="section" id="invite">
-      <div class="container narrow reveal">
-        <h3 class="title">With Blessings</h3>
-        <p class="lead" id="blessing"></p>
+  <!-- SCHEDULE -->
+  <section class="section" id="events">
+    <div class="container reveal">
+      <h3 class="title">Wedding Celebrations</h3>
+      <div class="timeline" id="timeline"></div>
+      <div class="center">
+        <button id="calBtn" class="btn outline">&#128197; Add Wedding to Calendar</button>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- FAMILIES -->
-    <section class="section alt" id="families">
-      <div class="container reveal">
-        <h3 class="title">The Families</h3>
-        <div class="couple-grid">
-          <article class="person">
-            <div class="avatar">A</div>
-            <h4 id="groomName"></h4>
-            <p class="role">The Groom</p>
-            <p class="parents" id="groomParents"></p>
-          </article>
-          <div class="heart">&#10084;</div>
-          <article class="person">
-            <div class="avatar">P</div>
-            <h4 id="brideName"></h4>
-            <p class="role">The Bride</p>
-            <p class="parents" id="brideParents"></p>
-          </article>
-        </div>
-      </div>
-    </section>
+  <!-- VENUES -->
+  <section class="section alt" id="venue">
+    <div class="container reveal">
+      <h3 class="title">Venues</h3>
+      <div class="venues" id="venueList"></div>
+    </div>
+  </section>
 
-    <!-- SCHEDULE -->
-    <section class="section" id="events">
-      <div class="container reveal">
-        <h3 class="title">Wedding Celebrations</h3>
-        <div class="timeline" id="timeline"></div>
-        <div class="center">
-          <button id="calBtn" class="btn outline">&#128197; Add Wedding to Calendar</button>
-        </div>
-      </div>
-    </section>
+  <!-- RSVP -->
+  <section class="section" id="rsvp">
+    <div class="container narrow reveal">
+      <h3 class="title">RSVP</h3>
+      <p class="lead center" id="rsvpNote"></p>
+      <!--        <form name="rsvp" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="rsvpForm" class="form">-->
+      <!--          <input type="hidden" name="form-name" value="rsvp" />-->
+      <!--          <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>-->
+      <!--          <label>Your Name-->
+      <!--            <input type="text" name="name" required placeholder="Full name" />-->
+      <!--          </label>-->
+      <!--          <label>Phone (optional)-->
+      <!--            <input type="tel" name="phone" placeholder="+91 ..." />-->
+      <!--          </label>-->
+      <!--          <div class="row">-->
+      <!--            <label>Will you attend?-->
+      <!--              <select name="attending" required>-->
+      <!--                <option value="Yes, with joy">Yes, with joy</option>-->
+      <!--                <option value="Sorry, can't make it">Sorry, can't make it</option>-->
+      <!--              </select>-->
+      <!--            </label>-->
+      <!--            <label>Guests-->
+      <!--              <input type="number" name="guests" min="1" max="10" value="1" />-->
+      <!--            </label>-->
+      <!--          </div>-->
+      <!--          <label>Message for the couple-->
+      <!--            <textarea name="message" rows="3" placeholder="Your wishes..."></textarea>-->
+      <!--          </label>-->
+      <!--          <button type="submit" class="btn gold full">Send RSVP</button>-->
+      <!--          <p id="rsvpThanks" class="thanks" hidden>Thank you! We can't wait to celebrate with you. &#10084;</p>-->
+      <!--        </form>-->
+      <p class="center small"><a id="waLink" target="_blank" rel="noopener">reply on WhatsApp</a></p>
+    </div>
+  </section>
+</main>
 
-    <!-- VENUES -->
-    <section class="section alt" id="venue">
-      <div class="container reveal">
-        <h3 class="title">Venues</h3>
-        <div class="venues" id="venueList"></div>
-      </div>
-    </section>
+<footer class="footer">
+  <p class="script" id="footNames"></p>
+  <p id="hashtag"></p>
+  <p class="small">With love &amp; gratitude &#10084; &nbsp; Dubey Family</p>
+</footer>
 
-    <!-- RSVP -->
-    <section class="section" id="rsvp">
-      <div class="container narrow reveal">
-        <h3 class="title">RSVP</h3>
-        <p class="lead center" id="rsvpNote"></p>
-<!--        <form name="rsvp" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="rsvpForm" class="form">-->
-<!--          <input type="hidden" name="form-name" value="rsvp" />-->
-<!--          <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>-->
-<!--          <label>Your Name-->
-<!--            <input type="text" name="name" required placeholder="Full name" />-->
-<!--          </label>-->
-<!--          <label>Phone (optional)-->
-<!--            <input type="tel" name="phone" placeholder="+91 ..." />-->
-<!--          </label>-->
-<!--          <div class="row">-->
-<!--            <label>Will you attend?-->
-<!--              <select name="attending" required>-->
-<!--                <option value="Yes, with joy">Yes, with joy</option>-->
-<!--                <option value="Sorry, can't make it">Sorry, can't make it</option>-->
-<!--              </select>-->
-<!--            </label>-->
-<!--            <label>Guests-->
-<!--              <input type="number" name="guests" min="1" max="10" value="1" />-->
-<!--            </label>-->
-<!--          </div>-->
-<!--          <label>Message for the couple-->
-<!--            <textarea name="message" rows="3" placeholder="Your wishes..."></textarea>-->
-<!--          </label>-->
-<!--          <button type="submit" class="btn gold full">Send RSVP</button>-->
-<!--          <p id="rsvpThanks" class="thanks" hidden>Thank you! We can't wait to celebrate with you. &#10084;</p>-->
-<!--        </form>-->
-        <p class="center small"><a id="waLink" target="_blank" rel="noopener">reply on WhatsApp</a></p>
-      </div>
-    </section>
-  </main>
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
 
-  <footer class="footer">
-    <p class="script" id="footNames"></p>
-    <p id="hashtag"></p>
-    <p class="small">With love &amp; gratitude &#10084; &nbsp; Dubey Family</p>
-  </footer>
+<!-- Music: plays when the guest opens the invitation; button toggles it -->
+<script>
+  (function () {
+    var song = document.getElementById('song');
+    var musicBtn = document.getElementById('musicBtn');
+    var openBtn = document.getElementById('openBtn');
+    if (!song || !musicBtn) return;
 
-  <script src="js/config.js"></script>
-  <script src="js/main.js"></script>
+    // Keep the button animation in sync with the real audio state
+    song.addEventListener('play', function () { musicBtn.classList.add('playing'); });
+    song.addEventListener('pause', function () { musicBtn.classList.remove('playing'); });
+
+    // Start music on the guest's first tap (browsers block autoplay otherwise)
+    if (openBtn) {
+      openBtn.addEventListener('click', function () {
+        musicBtn.hidden = false;
+        var p = song.play();
+        if (p && p.catch) p.catch(function () {});
+      });
+    }
+
+    // Capture phase + stopImmediatePropagation => exactly one toggle,
+    // even if main.js also has its own music-button handler.
+    musicBtn.addEventListener('click', function (e) {
+      e.stopImmediatePropagation();
+      if (song.paused) {
+        var p = song.play();
+        if (p && p.catch) p.catch(function () {});
+      } else {
+        song.pause();
+      }
+    }, true);
+  })();
+</script>
 </body>
 </html>
