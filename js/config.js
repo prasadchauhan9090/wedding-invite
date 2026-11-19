@@ -11,7 +11,7 @@ const WEDDING = {
   city: "Deoghar, Jharkhand",
 
   blessing:
-    "With the blessings of our elders and the love of our families, we joyfully invite you to celebrate the beautiful beginning of our life together. Your presence and blessings will make our celebration complete.",
+      "With the blessings of our elders and the love of our families, we joyfully invite you to celebrate the beautiful beginning of our life together. Your presence and blessings will make our celebration complete.",
 
   groomFamily: { father: "Rabindra Kumar Dubey", mother: "Kiran Dubey" },
   brideFamily: { father: "Sudhir Kumar", mother: "Guddi Devi" },
@@ -37,10 +37,10 @@ const WEDDING = {
       events: [ { icon: "🌿", title: "Mehandi", time: "6:00 PM onwards" } ] },
     { date: "8", month: "Dec", weekday: "Tuesday", venue: "deoghar",
       events: [ { icon: "🪔", title: "Tilakotsav", time: "11:00 AM onwards" },
-                { icon: "💍", title: "Sagai & Sangeet", time: "6:00 PM onwards" } ] },
+        { icon: "💍", title: "Sagai & Sangeet", time: "6:00 PM onwards" } ] },
     { date: "9", month: "Dec", weekday: "Wednesday", venue: "deoghar",
       events: [ { icon: "🌼", title: "Haldi", time: "9:00 AM onwards" },
-                { icon: "🔥", title: "Wedding Ceremony", time: "6:00 PM onwards", highlight: true } ] },
+        { icon: "🔥", title: "Wedding Ceremony", time: "6:00 PM onwards", highlight: true } ] },
     { date: "11", month: "Dec", weekday: "Friday", venue: "gaya",
       events: [ { icon: "🥂", title: "Reception", time: "7:00 PM onwards" } ] }
   ],
