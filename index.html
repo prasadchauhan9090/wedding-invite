@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ayush &amp; Priyanka | Wedding Invitation</title>
+  <meta name="description" content="You are cordially invited to the wedding of Ayush & Priyanka, 9th December 2026, Deoghar." />
+  <meta property="og:title" content="Ayush & Priyanka are getting married!" />
+  <meta property="og:description" content="Join us in celebrating our special day - 9th December 2026." />
+  <meta property="og:image" content="assets/couple.jpg" />
+  <meta name="theme-color" content="#6d1a2b" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="locked">
+
+  <div id="petals" aria-hidden="true"></div>
+
+  <!-- Welcome screen (also lets the browser play music) -->
+  <section id="intro" class="intro">
+    <div class="intro-card">
+      <p class="intro-small">ॐ &nbsp; Shubh Vivah &nbsp; ॐ</p>
+      <p class="intro-small dim">You are invited to the wedding of</p>
+      <h1 class="script" id="introNames"></h1>
+      <div class="divider"><span>&#10086;</span></div>
+      <p class="intro-small" id="introDate"></p>
+      <button id="openBtn" class="btn gold">Open Invitation &#9835;</button>
+    </div>
+  </section>
+
+  <button id="musicBtn" class="music-btn" aria-label="Toggle music" title="Music on/off" hidden>
+    <span class="bars"><i></i><i></i><i></i><i></i></span>
+  </button>
+  <audio id="song" loop preload="auto"></audio>
+
+  <main>
+    <!-- HERO -->
+    <header class="hero" id="home">
+      <div class="hero-inner reveal">
+        <p class="eyebrow">We are getting married</p>
+        <div class="photo-frame">
+          <img id="heroPhoto" alt="Ayush and Priyanka" />
+        </div>
+        <h2 class="script big" id="heroNames"></h2>
+        <div class="divider"><span>&#10086;</span></div>
+        <p class="hero-date" id="heroDate"></p>
+        <p class="hero-place" id="heroPlace"></p>
+        <div class="countdown" id="countdown">
+          <div><b id="cd-d">00</b><span>Days</span></div>
+          <div><b id="cd-h">00</b><span>Hours</span></div>
+          <div><b id="cd-m">00</b><span>Minutes</span></div>
+          <div><b id="cd-s">00</b><span>Seconds</span></div>
+        </div>
+        <a href="#invite" class="scroll-hint">Scroll &#8595;</a>
+      </div>
+    </header>
+
+    <!-- BLESSING -->
+    <section class="section" id="invite">
+      <div class="container narrow reveal">
+        <h3 class="title">With Blessings</h3>
+        <p class="lead" id="blessing"></p>
+      </div>
+    </section>
+
+    <!-- FAMILIES -->
+    <section class="section alt" id="families">
+      <div class="container reveal">
+        <h3 class="title">The Families</h3>
+        <div class="couple-grid">
+          <article class="person">
+            <div class="avatar">A</div>
+            <h4 id="groomName"></h4>
+            <p class="role">The Groom</p>
+            <p class="parents" id="groomParents"></p>
+          </article>
+          <div class="heart">&#10084;</div>
+          <article class="person">
+            <div class="avatar">P</div>
+            <h4 id="brideName"></h4>
+            <p class="role">The Bride</p>
+            <p class="parents" id="brideParents"></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section class="section" id="events">
+      <div class="container reveal">
+        <h3 class="title">Wedding Celebrations</h3>
+        <div class="timeline" id="timeline"></div>
+        <div class="center">
+          <button id="calBtn" class="btn outline">&#128197; Add Wedding to Calendar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- VENUES -->
+    <section class="section alt" id="venue">
+      <div class="container reveal">
+        <h3 class="title">Venues</h3>
+        <div class="venues" id="venueList"></div>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="section" id="rsvp">
+      <div class="container narrow reveal">
+        <h3 class="title">RSVP</h3>
+        <p class="lead center" id="rsvpNote"></p>
+        <form name="rsvp" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="rsvpForm" class="form">
+          <input type="hidden" name="form-name" value="rsvp" />
+          <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+          <label>Your Name
+            <input type="text" name="name" required placeholder="Full name" />
+          </label>
+          <label>Phone (optional)
+            <input type="tel" name="phone" placeholder="+91 ..." />
+          </label>
+          <div class="row">
+            <label>Will you attend?
+              <select name="attending" required>
+                <option value="Yes, with joy">Yes, with joy</option>
+                <option value="Sorry, can't make it">Sorry, can't make it</option>
+              </select>
+            </label>
+            <label>Guests
+              <input type="number" name="guests" min="1" max="10" value="1" />
+            </label>
+          </div>
+          <label>Message for the couple
+            <textarea name="message" rows="3" placeholder="Your wishes..."></textarea>
+          </label>
+          <button type="submit" class="btn gold full">Send RSVP</button>
+          <p id="rsvpThanks" class="thanks" hidden>Thank you! We can't wait to celebrate with you. &#10084;</p>
+        </form>
+        <p class="center small">or <a id="waLink" target="_blank" rel="noopener">reply on WhatsApp</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="script" id="footNames"></p>
+    <p id="hashtag"></p>
+    <p class="small">With love &amp; gratitude &#10084; &nbsp; Dubey &amp; Kumar Families</p>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
