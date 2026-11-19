@@ -2,7 +2,7 @@
    EDIT ONLY THIS FILE to change names, dates, venue, song, etc.
    ============================================================ */
 const WEDDING = {
-  groom: "Ayush Kumar",
+  groom: "Ayush Kumar Dubey",
   bride: "Priyanka Kumari",
 
   // Main wedding ceremony (ISO format, India time = +05:30)
