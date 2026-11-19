@@ -34,25 +34,28 @@ const WEDDING = {
   // Day-wise schedule. time can be "" if not decided.
   days: [
     { date: "7", month: "Dec", weekday: "Monday", venue: "deoghar",
-      events: [ { icon: "🌿", title: "Mehandi", time: "6:00 PM onwards" } ] },
+      events: [ { icon: "\u{1F33F}", title: "Mehandi", time: "6:00 PM onwards" } ] },
     { date: "8", month: "Dec", weekday: "Tuesday", venue: "deoghar",
-      events: [ { icon: "🪔", title: "Tilakotsav", time: "11:00 AM onwards" },
-        { icon: "💍", title: "Sagai & Sangeet", time: "6:00 PM onwards" } ] },
+      events: [ { icon: "\u{1FA94}", title: "Tilakotsav", time: "11:00 AM onwards" },
+        { icon: "\u{1F48D}", title: "Sagai & Sangeet", time: "6:00 PM onwards" } ] },
     { date: "9", month: "Dec", weekday: "Wednesday", venue: "deoghar",
-      events: [ { icon: "🌼", title: "Haldi", time: "9:00 AM onwards" },
-        { icon: "🔥", title: "Wedding Ceremony", time: "6:00 PM onwards", highlight: true } ] },
+      events: [ { icon: "\u{1F33C}", title: "Haldi", time: "9:00 AM onwards" },
+        { icon: "\u{1F525}", title: "Wedding Ceremony", time: "6:00 PM onwards", highlight: true } ] },
     { date: "11", month: "Dec", weekday: "Friday", venue: "gaya",
-      events: [ { icon: "🥂", title: "Reception", time: "7:00 PM onwards" } ] }
+      events: [ { icon: "\u{1F942}", title: "Reception", time: "7:00 PM onwards" } ] }
   ],
 
   rsvp: {
     note: "Kindly confirm your presence so we can welcome you with love.",
     // WhatsApp number with country code, no + or spaces  (CHANGE THIS)
-    whatsapp: "7909037811"
+    whatsapp: "917909037811"
   },
 
-  // Put your mp3 in the assets folder as song.mp3
-  song: { file: "assets/song.mp3", title: "Our Wedding Song" },
+  // Song file (inside the assets/ayushweddingsongs folder)
+  song: {
+    file: "assets/ayushweddingsongs/jonasblakewood-indian-wedding-indian-wedding-music-350631.mp3",
+    title: "Our Wedding Song"
+  },
 
   hashtag: "#EkDujeKePriyAyush"
 };

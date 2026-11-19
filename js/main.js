@@ -20,14 +20,14 @@
   $("hashtag").textContent = W.hashtag;
   $("rsvpNote").textContent = W.rsvp.note;
   $("waLink").href =
-    "https://wa.me/" + W.rsvp.whatsapp + "?text=" +
-    encodeURIComponent("Namaste! I would love to attend " + names + "'s wedding. 🎉");
+      "https://wa.me/" + W.rsvp.whatsapp + "?text=" +
+      encodeURIComponent("Namaste! I would love to attend " + names + "'s wedding. \u{1F389}");
 
   $("timeline").innerHTML = W.days
-    .map((d) => {
-      const v = W.venues[d.venue];
-      const evs = d.events
-        .map((e) => `
+      .map((d) => {
+        const v = W.venues[d.venue];
+        const evs = d.events
+            .map((e) => `
         <div class="ev ${e.highlight ? "hl" : ""}">
           <span class="ev-icon">${e.icon}</span>
           <div>
@@ -35,21 +35,21 @@
             <p>${e.time ? esc(e.time) : "Details to follow"}</p>
           </div>
         </div>`)
-        .join("");
-      return `
+            .join("");
+        return `
       <div class="day">
         <div class="date-badge"><b>${esc(d.date)}</b><span>${esc(d.month)}</span><small>${esc(d.weekday)}</small></div>
         <div class="day-body">${evs}<p class="day-venue">&#128205; ${esc(v.name)}, ${esc(v.address.split(",").slice(-3, -1).join(",").trim() || "")}</p></div>
       </div>`;
-    })
-    .join("");
+      })
+      .join("");
 
   $("venueList").innerHTML = [
-    ["Deoghar", "Mehandi · Tilakotsav · Sagai &amp; Sangeet · Haldi · Wedding", W.venues.deoghar],
-    ["Gaya", "Reception · 11th December", W.venues.gaya]
+    ["Deoghar", "Mehandi \u00B7 Tilakotsav \u00B7 Sagai &amp; Sangeet \u00B7 Haldi \u00B7 Wedding", W.venues.deoghar],
+    ["Gaya", "Reception \u00B7 11th December", W.venues.gaya]
   ]
-    .map(
-      ([city, what, v]) => `
+      .map(
+          ([city, what, v]) => `
     <div class="venue-card">
       <p class="venue-tag">${city}</p>
       <h4>${esc(v.name)}</h4>
@@ -57,8 +57,8 @@
       <p>${esc(v.address)}</p>
       <a class="btn gold" href="${v.mapLink}" target="_blank" rel="noopener">&#128205; Get Directions</a>
     </div>`
-    )
-    .join("");
+      )
+      .join("");
 
   function esc(s) {
     return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -69,7 +69,7 @@
   function tick() {
     let diff = weddingDate - new Date();
     if (diff <= 0) {
-      $("countdown").innerHTML = '<p class="hero-date">Today is the day! 🎉</p>';
+      $("countdown").innerHTML = '<p class="hero-date">Today is the day! \u{1F389}</p>';
       return;
     }
     const d = Math.floor(diff / 864e5); diff -= d * 864e5;
@@ -90,7 +90,11 @@
   let musicOK = true;
   audio.src = W.song.file;
   audio.volume = 0.6;
-  audio.addEventListener("error", () => { musicOK = false; musicBtn.hidden = true; });
+  audio.addEventListener("error", () => {
+    musicOK = false;
+    musicBtn.hidden = true;
+    console.error("Song could not load. Tried:", audio.src, "- check the path in js/config.js and that the mp3 is uploaded.");
+  });
 
   function setPlaying(on) {
     musicBtn.classList.toggle("playing", on);
@@ -107,20 +111,23 @@
     setTimeout(() => ($("intro").style.display = "none"), 900);
     if (musicOK) {
       musicBtn.hidden = false;
-      audio.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
+      audio.play().then(() => setPlaying(true)).catch((err) => {
+        console.warn("Music play blocked or failed:", err);
+        setPlaying(false);
+      });
     }
   });
 
   /* ---------- Reveal on scroll ---------- */
   const io = new IntersectionObserver(
-    (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("show")),
-    { threshold: 0.15 }
+      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("show")),
+      { threshold: 0.15 }
   );
   document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
 
   /* ---------- Petals ---------- */
   const petals = $("petals");
-  const icons = ["🌸", "🌺", "🌼", "✨"];
+  const icons = ["\u{1F338}", "\u{1F33A}", "\u{1F33C}", "\u2728"];
   const count = window.innerWidth < 600 ? 14 : 26;
   for (let i = 0; i < count; i++) {
     const p = document.createElement("span");
@@ -153,12 +160,16 @@
   });
 
   /* ---------- RSVP (Netlify Forms) ---------- */
-  $("rsvpForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const body = new URLSearchParams(new FormData(form)).toString();
-    fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body })
-      .then((r) => { if (!r.ok) throw new Error(); form.reset(); $("rsvpThanks").hidden = false; })
-      .catch(() => alert("Could not send right now. Please use the WhatsApp link below."));
-  });
+  // The RSVP form is currently commented out in index.html, so only attach if it exists.
+  const rsvpForm = $("rsvpForm");
+  if (rsvpForm) {
+    rsvpForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const body = new URLSearchParams(new FormData(form)).toString();
+      fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body })
+          .then((r) => { if (!r.ok) throw new Error(); form.reset(); $("rsvpThanks").hidden = false; })
+          .catch(() => alert("Could not send right now. Please use the WhatsApp link below."));
+    });
+  }
 })();

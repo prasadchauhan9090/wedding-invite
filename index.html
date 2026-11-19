@@ -21,7 +21,7 @@
 <!-- Welcome screen (also lets the browser play music) -->
 <section id="intro" class="intro">
   <div class="intro-card">
-    <p class="intro-small">ॐ &nbsp; Shubh Vivah &nbsp; ॐ</p>
+    <p class="intro-small">&#2384; &nbsp; Shubh Vivah &nbsp; &#2384;</p>
     <p class="intro-small dim">You are invited to the wedding of</p>
     <h1 class="script" id="introNames"></h1>
     <div class="divider"><span>&#10086;</span></div>
@@ -152,39 +152,5 @@
 <script src="js/config.js"></script>
 <script src="js/main.js"></script>
 
-<!-- Music: plays when the guest opens the invitation; button toggles it -->
-<script>
-  (function () {
-    var song = document.getElementById('song');
-    var musicBtn = document.getElementById('musicBtn');
-    var openBtn = document.getElementById('openBtn');
-    if (!song || !musicBtn) return;
-
-    // Keep the button animation in sync with the real audio state
-    song.addEventListener('play', function () { musicBtn.classList.add('playing'); });
-    song.addEventListener('pause', function () { musicBtn.classList.remove('playing'); });
-
-    // Start music on the guest's first tap (browsers block autoplay otherwise)
-    if (openBtn) {
-      openBtn.addEventListener('click', function () {
-        musicBtn.hidden = false;
-        var p = song.play();
-        if (p && p.catch) p.catch(function () {});
-      });
-    }
-
-    // Capture phase + stopImmediatePropagation => exactly one toggle,
-    // even if main.js also has its own music-button handler.
-    musicBtn.addEventListener('click', function (e) {
-      e.stopImmediatePropagation();
-      if (song.paused) {
-        var p = song.play();
-        if (p && p.catch) p.catch(function () {});
-      } else {
-        song.pause();
-      }
-    }, true);
-  })();
-</script>
 </body>
 </html>
