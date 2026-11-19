@@ -53,7 +53,7 @@ const WEDDING = {
 
   // Song file (inside the assets/ayushweddingsongs folder)
   song: {
-    file: "assets/ayushweddingsongs/jonasblakewood-indian-wedding-indian-wedding-music-350631.mp3",
+    file: "assets/ayushweddingsongs/jonasblakewood-indian-wedding-indian-wedding-music-350631.mpeg",
     title: "Our Wedding Song"
   },
 
