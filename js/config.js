@@ -48,11 +48,11 @@ const WEDDING = {
   rsvp: {
     note: "Kindly confirm your presence so we can welcome you with love.",
     // WhatsApp number with country code, no + or spaces  (CHANGE THIS)
-    whatsapp: "919999999999"
+    whatsapp: "7909037811"
   },
 
   // Put your mp3 in the assets folder as song.mp3
   song: { file: "assets/song.mp3", title: "Our Wedding Song" },
 
-  hashtag: "#AyushWedsPriyanka"
+  hashtag: "#EkDujeKePriyAyush"
 };
