@@ -34,7 +34,7 @@ const WEDDING = {
   // Day-wise schedule. time can be "" if not decided.
   days: [
     { date: "7", month: "Dec", weekday: "Monday", venue: "deoghar",
-      events: [ { icon: "🌿", title: "Mehandi", time: "" } ] },
+      events: [ { icon: "🌿", title: "Mehandi", time: "6:00 PM onwards" } ] },
     { date: "8", month: "Dec", weekday: "Tuesday", venue: "deoghar",
       events: [ { icon: "🪔", title: "Tilakotsav", time: "11:00 AM onwards" },
                 { icon: "💍", title: "Sagai & Sangeet", time: "6:00 PM onwards" } ] },
@@ -42,7 +42,7 @@ const WEDDING = {
       events: [ { icon: "🌼", title: "Haldi", time: "9:00 AM onwards" },
                 { icon: "🔥", title: "Wedding Ceremony", time: "6:00 PM onwards", highlight: true } ] },
     { date: "11", month: "Dec", weekday: "Friday", venue: "gaya",
-      events: [ { icon: "🥂", title: "Reception", time: "" } ] }
+      events: [ { icon: "🥂", title: "Reception", time: "7:00 PM onwards" } ] }
   ],
 
   rsvp: {
